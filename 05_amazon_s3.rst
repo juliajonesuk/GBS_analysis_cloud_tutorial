@@ -1,9 +1,9 @@
 Uploading your GBS data in the cloud
 ====================================
 
-After trying to download your Illumina lanes to your computer or university computer clusters, you finally understand the meaning of *omic* jargon: **avalanche**, **deluge** and **tsunami**.
+After trying to download your Illumina lanes to your computer or university computer clusters, you now finally understand the meaning of *omic* jargon: **avalanche**, **deluge** and **tsunami**.
 
-Moving biological data around is a challenge and it isn't going away, technologies in the -omic fields are constantly evolving and producing more data... Accessibility, Expendability, Redundancy and Reliability: this is where `Amazon Simple Storage Service (S3) <http://aws.amazon.com/s3/>`_ comes to play.
+Moving biological data around is a challenge and it isn't going away, technologies in the -omic fields are constantly evolving and producing more data... Accessibility, Expendability, Redundancy and Reliability: this is where `Amazon Simple Storage Service (S3) <http://aws.amazon.com/s3/>`_ come in to play.
 
 .. image:: s3_bucket_flowchart.png
 
@@ -15,11 +15,11 @@ Moving biological data around is a challenge and it isn't going away, technologi
 
 .. Note:: 
 
- **Vocabulary specific for Amazon S3:** In kitchens, you have cabinets with drawers filled with kitchen tools. In computers, you have directory with folders filled with files. With Amazon S3 you have **buckets** filled with **objects**. The object can be any files: music, photos or .fastq files! 
+ **Vocabulary specific for Amazon S3:** In kitchens, you have cabinets with drawers filled with kitchen tools. In computers, you have directories with folders filled with files. With Amazon S3 you have **buckets** filled with **objects**. The object can be any files: music, photos or .fastq files! 
 
 
 
- You're not charged for creating buckets, only for content you put in the buckets. You keep originals and want to use Amazon S3 for backup ? Use the *Reduced Redundancy Storage (RRS)* feature to reduce by 20% the cost of storage on Amazon S3. 
+ You're not charged for creating buckets, only for the content you put in the buckets. Do you want to keep originals and use Amazon S3 as a backup? Use the *Reduced Redundancy Storage (RRS)* feature to reduce the cost, by 20%, of storage on Amazon S3. 
  
  Data transfer IN Amazon S3 : FREE
  Data transfer OUT Amazon S3 TO Amazon EC2 in your region: FREE
@@ -28,7 +28,7 @@ Moving biological data around is a challenge and it isn't going away, technologi
  For GBS data archiving, see `Amazon Glacier <https://aws.amazon.com/glacier/>`_. 
  
  
- For easy on-site storage solution for next-generation sequencing data, see `drobo <http://www.drobo.com>`_.
+ For easy on-site storage solutions for next-generation sequencing data, see `drobo <http://www.drobo.com>`_.
  
  
 
@@ -42,12 +42,12 @@ Upload data with your browser
 
  **Get the most out of Amazon S3**: with the free application `Cyberduck <http://cyberduck.io>`_ to view your Amazon S3 bucket content, transfer files or synchronize transfer between your Mac and your bucket (here's the `Cyberduck-Amazon S3 how to <https://trac.cyberduck.io/wiki/help/en/howto/s3>`_ and `Cyberduck's Quick Refence Guide <https://trac.cyberduck.io/raw-attachment/wiki/help/en/Cyberduck%20Quick%20Reference.pdf>`_). Or use `transmit <https://panic.com/transmit/>`_ to mount your S3 bucket like an external drive on your Mac desktop . Linux users will find `FileZilla <https://filezilla-project.org>`_ very useful.
  
- We haven't found a GUI application besides the Amazon Java applet (through your browser) that supports transferring large files like those produced by Illumina or Ion Torrent sequencers. Transferring individual fastq files will work, but for your entore flowcells and lanes, you need something more useful...
+ We haven't found a GUI application, apart from the Amazon Java applet (through your browser), that supports transferring large files like those produced by Illumina or Ion Torrent sequencers. Transferring individual fastq files will work, but for your entire flowcells and lanes, you need something more useful...
 
 
 Upload data using the Terminal
 ------------------------------
-The Terminal is much more powerful to upload large files to your new Amazon S3 bucket. We will use Python's built in multiprocessing module that takes advantage of `multipart upload <http://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html>`_ of Amazon and `boto <http://boto.readthedocs.org>`_. To make uploading your data less painful, the script upload, in parallel, chunks of your huge files.
+The Terminal is much more powerful for uploading large files to your new Amazon S3 bucket. We will use Python's built in multiprocessing module that takes advantage of `multipart upload <http://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html>`_ of Amazon and `boto <http://boto.readthedocs.org>`_. To make uploading your data less painful, the script uploads, in parallel, chunks of your huge files.
 
 
 1. Configure **boto** with your Amazon credentials:
@@ -72,9 +72,9 @@ The Terminal is much more powerful to upload large files to your new Amazon S3 b
  sudo chmod 600 ~/.EC2/boto.cfg           # put restriction on the file
 
 
-You want to include the BOTO_CONFIG environment variable definition to your shell start up script so that boto knows where to look for the Amazon credentials (boto.cfg) every time you log in or spawn a new shell.
+You want to include the BOTO_CONFIG environment variable definition in your shell start up script so that boto knows where to look for the Amazon credentials (boto.cfg) every time you log in or spawn a new shell.
 
-Use *nano*, *vim* or *TextWrangler* to copy/paste ``export BOTO_CONFIG="/Users/thierry/.EC2/boto.cfg"`` to your .bash_profile file. Don't forget after to reload the shell start up script in the Terminal:
+Use *nano*, *vim* or *TextWrangler* to copy/paste ``export BOTO_CONFIG="/Users/thierry/.EC2/boto.cfg"`` to your .bash_profile file. Afterwards, don't forget to reload the shell start up script in the Terminal:
 
 .. code-block:: bash
 
