@@ -8,7 +8,7 @@ This part of the tutorial covers the creation of your own AMI, from scratch! (~ 
 
 **To help you through the GUI steps with your browser, watch this short video tutorial (3 min)**
 
-**Here is a detailed video that show you the step outline below:**
+**Here is a detailed video that shows you the steps outlined below:**
 
 .. raw:: html
 
@@ -23,10 +23,10 @@ This part of the tutorial covers the creation of your own AMI, from scratch! (~ 
 4. Add Storage: Size of the new image: 16 GB
 5. Add New Volume: select instance store 0 with device /dev/sdb (320 GB EBS drive 1)
 6. Add New Volume:select instance store 1 with device /dev/sdb (320 GB EBS drive 1)
-7. If you think you need more space than the instance provide, add it here.
+7. If you think you need more space than the instance provides, add it here.
 8. Configure Security Group: create a new security group named **GBS** with description **GBS analysis**. Type: SSH, Protocol: TCP, Port range 22, Source: My IP
 9. Review Spot Instance Request
-10. Will prompt to create a new key pair (name: GBS_keypair)	
+10. Will prompt you to create a new key pair (name: GBS_keypair)	
 
 .. Warning::
 
@@ -44,7 +44,7 @@ While waiting for the approval (~2-5 min) **go to your Terminal** and put restri
 Start `SSH <http://en.wikipedia.org/wiki/Secure_Shell>`_ connection
 -------------------------------------------------------------------
 
-After a few minutes, you can look in Amazon console for approval of your spot instance request and **get a description of your instance** with this command:
+After a few minutes, you can look in the Amazon console for approval of your spot instance request and **get a description of your instance** with this command:
 
 .. code-block:: bash
 
@@ -83,7 +83,7 @@ For librairies, software/dependencies and system updates, run the following comm
 
 .. code-block:: bash
 
- yum install automake build-essential curl-devel expat-devel fuse fuse-devel fuse-utils gcc gcc-c++ gcc-gfortran gettext gettext-devel git java-1.7.0-openjdk-devel libcurl3 libcurl4-gnutls-dev libexpat1-dev libpng-devel libssl-dev libstdc++-devel libX11-devel libxml2-devel libXt-devel libz-dev mailcap mysql mysql-devel mysql-server openssh-* openssl-devel pkg-config python-dev python-magic readline-devel texinfo-tex trickle unixODBC-devel unzip zlib-devel
+ yum installs automake build-essential curl-devel expat-devel fuse fuse-devel fuse-utils gcc gcc-c++ gcc-gfortran gettext gettext-devel git java-1.7.0-openjdk-devel libcurl3 libcurl4-gnutls-dev libexpat1-dev libpng-devel libssl-dev libstdc++-devel libX11-devel libxml2-devel libXt-devel libz-dev mailcap mysql mysql-devel mysql-server openssh-* openssl-devel pkg-config python-dev python-magic readline-devel texinfo-tex trickle unixODBC-devel unzip zlib-devel
 
 .. Note::
 
@@ -292,7 +292,7 @@ Use the ``lsblk`` command to view your available disk devices and their mount po
 Install GBS software
 --------------------
 
-Now, I guess you can wait to install `Stacks <http://creskolab.uoregon.edu/stacks/>`_ version 1.19 ?
+Now, I guess you can't wait to install `Stacks <http://creskolab.uoregon.edu/stacks/>`_ version 1.19 ?
 
 .. code-block:: bash
 
@@ -363,15 +363,15 @@ Now that you have customized your instance, you want to keep it for the next tim
  ec2-create-image $volume_id -n $name -d $D 
  
  
-3. Go back in Amazon console, with your browser, and look for the progress of AMI creation, this may take up to 10 min. **To see the description of your image, from time to time, run this command:**
+3. Go back into the Amazon console, with your browser, and look for the progress of AMI creation, this may take up to 10 min. **To see the description of your image, from time to time, run this command:**
 
 .. code-block:: bash
 
  ec2-describe-images 
 
-**Congratulation you now have a private AMI associated to your Amazon AWS account!**
+**Congratulation you now have a private AMI associated with your Amazon AWS account!**
  
-You want to share your AMI and make it public ? See this `Amazon tutorial <https://aws.amazon.com/articles/530>`_.
+Do you want to share your AMI and make it public? See this `Amazon tutorial <https://aws.amazon.com/articles/530>`_.
 
 
 .. Note::
