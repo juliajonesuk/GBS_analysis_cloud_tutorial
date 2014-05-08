@@ -4,7 +4,7 @@ Useful
 Update `Github <http://en.wikipedia.org/wiki/Github>`_
 ------------------------------------------------------
 Mac OSX comes with `Github <https://github.com
->`_,a Version Control System (VCS), pre-installed with Mavericks. However, the install is in /usr/bin/git which makes it difficult for beginners to update. To change this run these commands:
+>`_,a Version Control System (VCS), pre-installed with Mavericks. However, the install is in /usr/bin/git which makes it difficult for beginners to update. To change this, run these commands:
 
 
 1. Install `GNU Autoconf <http://www.gnu.org/software/autoconf/>`_
