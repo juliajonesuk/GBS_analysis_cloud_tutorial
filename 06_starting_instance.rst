@@ -6,7 +6,7 @@ GUI: Internet browser
 
 In this example we will request, through your internet browser, a spot instance with our public `AMI <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html>`_ already loaded with all the Linux update and GBS software necessary to start analyzing your GBS data!
 
-**Here is a detailed video that show you the step outline below:**
+**Here is a detailed video that shows you the steps outlined below:**
 
 .. raw:: html
 
@@ -20,7 +20,7 @@ In this example we will request, through your internet browser, a spot instance 
 
  1. In your browser, navigate to `Amazon console <https://console.aws.amazon.com/ec2/>`_ and select **Spot Requests** on the left panel.
 
- 2. Use **Pricing History** to help you make a price decision: select instance 'r3.8xlarge' and you will see that over the last month, the price of the instance didn't reach 0,30 $! Not bad! We pay less than 10% of the actual price of the instance (2,80$/h)
+ 2. Use **Pricing History** to help you make a price decision: select instance 'r3.8xlarge' and you will see that over the last month, the price of the instance didn't reach 0,30 $! Not bad! We pay less than 10% of the actual price of the instance ($2.80/h)
 
  3. Request a spot instance
 
@@ -28,20 +28,20 @@ In this example we will request, through your internet browser, a spot instance 
 
  5. Choose an Instance Type: `memory optimized r3.8xlarge <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/r3-instances.html>`_
 
- 6. Configure the instance with a **maximum price of 0,30 $** or higher if you really want to make sure that your spot request is accepted)
+ 6. Configure the instance with a **maximum price of $0.30 ** or higher if you really want to make sure that your spot request is accepted)
 
- 7. Add Storage: Size of the new image: 16 GB and add New Volume: select instance store 0 with device /dev/sdb (320 GB EBS drive 1). Add New Volume:select instance store 1 with device /dev/sdb (320 GB EBS drive 1). If you think you need more space than the instance provide, add it here.
+ 7. Add Storage: Size of the new image: 16 GB and add New Volume: select instance store 0 with device /dev/sdb (320 GB EBS drive 1). Add New Volume:select instance store 1 with device /dev/sdb (320 GB EBS drive 1). If you think you need more space than the instance provides, add it here.
 
  8. Configure `security group <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`_ : create a new security group named **GBS** with description **GBS analysis**. Type: SSH, Protocol: TCP, Port range 22, Source: My IP
 
  9. Review Spot Instance Request
- 10. Will prompt to create a new key pair (name: GBS_keypair)
+ 10. Will prompt you to create a new key pair (name: GBS_keypair)
 
 .. Warning::
 
  If you plan on using this spot instance from your office and home or with your computer and other devices (iPad/iPhone), leave the IP address set to "Anywhere" in *Source* (step 8).
 
-While waiting for the approval (~2-5 min) **go to your Terminal** and put restriction on your keypair.
+While waiting for the approval (~2-5 min) **go to your Terminal** and put restrictions on your keypair.
 
 .. code-block:: bash
 
@@ -105,7 +105,7 @@ Request a spot instance using our public `AMI <http://docs.aws.amazon.com/AWSEC2
 
 .. Warning::
 
- If you plan on leaving your office and have a look at your running instance from home or with an iPad/iPhone, don't use the field ``-s your-IP-address/32``.
+ If you plan on leaving your office and having a look at your running instance from home or with an iPad/iPhone, don't use the field ``-s your-IP-address/32``.
 
 To get the description of the Spot Instance Request use this command:
 
@@ -127,7 +127,7 @@ Launch command
 
 **Get a description of your instance**
 
-After a few minutes, you can look in Amazon console for approval of your spot instance request and get a description of your instance with this command:
+After a few minutes, you can look in the Amazon console for approval of your spot instance request and get a description of your instance with this command:
 
 .. code-block:: bash
 
@@ -178,7 +178,7 @@ Use the following command to mount the EBS volume:
  Use the ``lsblk`` command to view your block device mapping -> their mount points, to help you determine the correct device name to use. The output of ``lsblk`` removes the /dev/ prefix from full device paths.
 
 
-Sometimes 2 x 320 GB drive may be short on space and if you need to create another `EBS drive <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html>`_ with more space, say 1 TB (`see pricing <http://aws.amazon.com/ebs/pricing/>`_) and you forgot when starting the instance, you can use these commands **from your computer**:
+Sometimes 2 x 320 GB drive may not be enough space and if you need to create another `EBS drive <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html>`_ with more space, say 1 TB (`see pricing <http://aws.amazon.com/ebs/pricing/>`_) and you forgot when starting the instance, you can use these commands **from your computer**:
 
 .. code-block:: bash
 
@@ -258,7 +258,7 @@ You need to **edit s3fs**, the software use to mount your s3 bucket to your Amaz
 Start Stacks
 ------------
 
-Now, I guess you can wait to start `Stacks <http://creskolab.uoregon.edu/stacks/>`_ version 1.19 ? To see if everything is working properly, just type ``populations``...
+Now, I guess you can't wait to start `Stacks <http://creskolab.uoregon.edu/stacks/>`_ version 1.19? To see if everything is working properly, just type ``populations``...
 
 .. code-block:: bash
 
@@ -268,7 +268,7 @@ Now, I guess you can wait to start `Stacks <http://creskolab.uoregon.edu/stacks/
 **You are ready to start analyzing your GBS data!**
 
 1. Output your analysis in one of the 2 EBS volumes or your extra 1 TB EBS volume
-2. When your analysis are completed, transfer the compressed .tar.gz files to your s3 bucket to have access to your data when the instance will shut down.
+2. When your analyses are completed, transfer the compressed .tar.gz files to your s3 bucket to have access to your data when the instance shuts down.
 
 
 **To terminate an instance, use this command from your computer:**
