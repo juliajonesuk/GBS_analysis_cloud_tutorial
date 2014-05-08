@@ -7,7 +7,7 @@ Get the tools
 Similar to the tools needed to communicate with your computer, you also need special tools to communicate with Amazon's computers. This part of the tutorial is all about installing and configuring Amazon EC2 command line interface tools (CLI tools), these are shell script written in `Java <http://en.wikipedia.org/wiki/Java_(programming_language)>`_.
 
 .. Warning:: **Prerequisite... Java!** 
- -> Not sure you have Java ?
+ -> Not sure you have Java?
 
  .. code-block:: bash
 
@@ -100,7 +100,7 @@ Alternatively, if you are getting fond of the *Terminal*, you can use the *wget*
 
   export EC2_HOME=~/programs/ec2-api-tools-1.6.13
  
- 2. Modify your PATH to include the *programs* folder and the EC2 CLI Tools. This way, when you add software directly in your *programs* folder, this will automatically tell your shell start up script where the software binaries live in so that they're set every time you log in or spawn a new Terminal window. Mac OSX users can do this easily in TextWrangler and Linux users use Vi, copy and paste:
+ 2. Modify your PATH to include the *programs* folder and the EC2 CLI Tools. This way, when you add software directly in your *programs* folder, this will automatically tell your shell start up script where the software binaries live so that they're set every time you log in or use a new Terminal window. Mac OSX users can do this easily in TextWrangler and Linux users use Vi, copy and paste:
 
  .. code-block:: bash
 
@@ -147,7 +147,7 @@ To drive Amazon's computers you need 2 keys: an **access** and a **secret** keys
   export AWS_ACCESS_KEY=your-aws-access-key-id 
   export AWS_SECRET_KEY=your-aws-secret-key
 
-Start the engine !
+Start the engine!
 ------------------
 
 Make sure everything is properly configured and that your computer now talks Amazon language:
@@ -176,7 +176,7 @@ You should get a similar output:
 
 .. Note::
 
- **Encountering some problems? See documentation and video tutorials**
+ **Encountering some problems? See the documentation and video tutorials**
 
  - `All Amazon Web Services documentation <http://aws.amazon.com/documentation/>`_
  - `Command Line Reference <http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/Welcome.html>`_
