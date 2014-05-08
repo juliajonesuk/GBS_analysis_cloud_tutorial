@@ -1,7 +1,7 @@
 Personal computer setup
 =======================
 
-This part of the tutorial covers computer setup for first-time bioinformatic users or for new computers. You have already compiled or installed packages through Command Line Interface ? Don't loose time with this section.
+This part of the tutorial covers computer setup for first-time bioinformatic users or for new computers. If you have already compiled or installed packages through Command Line Interface don't loose time with this section.
 
  
 .. Note::
@@ -178,7 +178,7 @@ Find your shell start up script with the following command:
 
  ls -al ~ | grep profile
  
-If this return nothing (blank), you don't have a shell start up script. Create one with this command
+If this returns nothing (blank), you don't have a shell start up script. Create one with this command
 
 .. code-block:: bash
 
